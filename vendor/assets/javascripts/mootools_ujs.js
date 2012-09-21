@@ -39,19 +39,19 @@ provides:
             action: this.get('href'),
             styles: { display: 'none' }
           }).inject(this, 'after');
-          
+
           var methodInput = new Element('input', {
             type: 'hidden',
             name: '_method',
             value: this.get('data-method')
           });
-          
+
           var csrfInput = new Element('input', {
             type: 'hidden',
             name: rails.csrf.param,
             value: rails.csrf.token
           });
-          
+
           form.adopt(methodInput, csrfInput).submit();
         }
       });
@@ -93,7 +93,8 @@ provides:
     },
 
     handleRemote: function(e) {
-      e.preventDefault();
+      if (e)
+        e.preventDefault();
 
       if(rails.confirmed(this)) {
         this.request = new Request.Rails(this);
