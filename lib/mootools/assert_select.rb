@@ -43,7 +43,7 @@ module ActionDispatch
       # end
 
       PATTERN_HTML  = "\"((\\\\\"|[^\"])*)\"" unless defined? PATTERN_HTML
-      PATTERN_UNICODE_ESCAPED_CHAR = /\\u([0-9a-zA-Z]{4})/ unless defined? PATTERN_HTML
+      PATTERN_UNICODE_ESCAPED_CHAR = /\\u([0-9a-zA-Z]{4})/ unless defined? PATTERN_UNICODE_ESCAPED_CHAR
 
       def assert_select_mootools(*args, &block)
         mootools_method = args.first.is_a?(Symbol) ? args.shift : nil
